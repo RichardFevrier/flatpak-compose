@@ -118,7 +118,6 @@ func comparePermissions(currentApps []FlatpakApplication, nextApps []FlatpakAppl
 					if !StringExistsInArray(value, currentApp.Overrides) {
 						overridesChanged = true
 						app.Overrides = append(app.Overrides, value)
-						break
 					}
 				}
 				if overridesChanged {
@@ -130,7 +129,6 @@ func comparePermissions(currentApps []FlatpakApplication, nextApps []FlatpakAppl
 					if !StringExistsInArray(value, currentApp.OverridesUser) {
 						overridesUserChanged = true
 						app.OverridesUser = append(app.OverridesUser, value)
-						break
 					}
 				}
 				if overridesUserChanged {
