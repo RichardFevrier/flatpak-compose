@@ -30,12 +30,12 @@ func compareRepositories(currentRepos []FlatpakRepo, nextRepos []FlatpakRepo) ([
 
 	nextRepoMap := make(map[string]bool)
 	for _, repo := range nextRepos {
-		key := fmt.Sprintf("%s|%s|%s", repo.Name, repo.URI, repo.InstallationType)
+		key := fmt.Sprintf("%s|%s|%s", repo.Name, repo.URI, repo.Options)
 		nextRepoMap[key] = true
 	}
 
 	for _, repo := range currentRepos {
-		key := fmt.Sprintf("%s|%s|%s", repo.Name, repo.URI, repo.InstallationType)
+		key := fmt.Sprintf("%s|%s|%s", repo.Name, repo.URI, repo.Options)
 		if _, exists := nextRepoMap[key]; !exists {
 			reposToRemove = append(reposToRemove, repo)
 		}
@@ -43,12 +43,12 @@ func compareRepositories(currentRepos []FlatpakRepo, nextRepos []FlatpakRepo) ([
 
 	currentRepoMap := make(map[string]bool)
 	for _, repo := range currentRepos {
-		key := fmt.Sprintf("%s|%s|%s", repo.Name, repo.URI, repo.InstallationType)
+		key := fmt.Sprintf("%s|%s|%s", repo.Name, repo.URI, repo.Options)
 		currentRepoMap[key] = true
 	}
 
 	for _, repo := range nextRepos {
-		key := fmt.Sprintf("%s|%s|%s", repo.Name, repo.URI, repo.InstallationType)
+		key := fmt.Sprintf("%s|%s|%s", repo.Name, repo.URI, repo.Options)
 		if _, exists := currentRepoMap[key]; !exists {
 			reposToAdd = append(reposToAdd, repo)
 		}
