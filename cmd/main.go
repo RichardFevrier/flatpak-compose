@@ -31,12 +31,12 @@ func getValidFileName(defaultFileName string) (string, error) {
 func main() {
 	applyCmd := flag.NewFlagSet("apply", flag.ExitOnError)
 	applyFile := applyCmd.String("f", "flatpak-compose.yaml", "YAML file for applying changes")
-	applyNextState := applyCmd.String("current-state", "system-compose", "Specify the current state type: system-compose or system")
+	applyNextState := applyCmd.String("current-state", "system", "Specify the current state type: system-compose or system")
 	applyAssumeyes := applyCmd.Bool("assumeyes", false, "Automatically answer yes for all questions")
 
 	planCmd := flag.NewFlagSet("plan", flag.ExitOnError)
 	planFile := planCmd.String("f", "flatpak-compose.yaml", "YAML file for planning changes")
-	planNextState := planCmd.String("current-state", "system-compose", "Specify the current state type: system-compose or system")
+	planNextState := planCmd.String("current-state", "system", "Specify the current state type: system-compose or system")
 
 	exportCmd := flag.NewFlagSet("export-state", flag.ExitOnError)
 	exportFile := exportCmd.String("f", "flatpak-compose.yaml", "YAML file for exporting state")
